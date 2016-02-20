@@ -8,16 +8,18 @@
 </body>
 
 <template name="weather">
+	<div class="weather">
 	<h3>Enter a zip code to see weather results:</h3>
-	<form class="zip-code">
+	<form class="zip-code form-inline">
 		<input type="text" name="zip" placeholder="Enter a zip code" />
-		<input type="submit" value="Go">
+		<input type="submit" class="btn btn-default" value="Go">
 	</form>
-	<p>{{city}} - {{temperature}}</p>
+	<p>{{city}} {{#if temperature}}-{{/if}} {{temperature}}</p>
 	<p>
 		{{#if icon}}
 			<img src="http://openweathermap.org/img/w/{{icon}}.png">
 		{{/if}}
 		{{description}}
 	</p>
+	</div>
 </template> 

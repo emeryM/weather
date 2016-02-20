@@ -54,6 +54,6 @@ if (Meteor.isServer) {
     // query the API
     var response = HTTP.get(apiUrl).data;
     return response;
-  }
-});
+    }
+  });
 }
