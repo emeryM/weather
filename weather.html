@@ -1,0 +1,24 @@
+<head>
+	<title>weather</title>
+</head>
+
+<body>
+	<h1>Awesome Weather</h1>
+	{{> weather}}
+</body>
+
+<template name="weather">
+	<h3>Enter a zip code to see weather results:</h3>
+	<form class="zip-code">
+		<input type="text" name="zip" placeholder="Enter a zip code" />
+		<input type="submit" value="Go">
+	</form>
+	<p>{{city}}</p>
+	<p>
+		{{#if icon}}
+			<img src="http://openweathermap.org/img/w/{{icon}}.png">
+		{{/if}}
+		{{description}}
+	</p>
+	<p>{{temperature}}</p>
+</template> 
