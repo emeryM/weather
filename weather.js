@@ -25,6 +25,7 @@ if (Meteor.isClient) {
  
       // Call the API and populate the template
       Meteor.call('weather', zip, function(err,res){ 
+        console.log(res);
         Session.set('city', res.name);
         Session.set('description', res.weather[0].description);
         Session.set('temperature', JSON.stringify(res.main.temp) + '°');
@@ -48,7 +49,7 @@ if (Meteor.isServer) {
   'weather': function (zip) {
     console.log('Get weather for', zip);
     // Construct the API URL
-    var apiKey = 'ca7658578e3407e62b66ab6090f0cc85';
+    var apiKey = Meteor.settings.apiKey;
     var apiUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=' + zip + ',us&units=imperial&APPID=' + apiKey;
     // query the API
     var response = HTTP.get(apiUrl).data;
