@@ -23,12 +23,12 @@ if (Meteor.isClient) {
       // Get value from form element
       var zip = event.target.zip.value;
  
-      // Call the API and populate the template
+      // Call the api and populate the template
       Meteor.call('weather', zip, function(err,res){ 
         console.log(res);
         Session.set('city', res.name);
         Session.set('description', res.weather[0].description);
-        Session.set('temperature', JSON.stringify(res.main.temp) + '°');
+        Session.set('temperature', Math.round(res.main.temp) + '°');
         Session.set('icon', res.weather[0].icon);
       });
  

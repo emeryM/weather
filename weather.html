@@ -13,12 +13,11 @@
 		<input type="text" name="zip" placeholder="Enter a zip code" />
 		<input type="submit" value="Go">
 	</form>
-	<p>{{city}}</p>
+	<p>{{city}} - {{temperature}}</p>
 	<p>
 		{{#if icon}}
 			<img src="http://openweathermap.org/img/w/{{icon}}.png">
 		{{/if}}
 		{{description}}
 	</p>
-	<p>{{temperature}}</p>
 </template> 
